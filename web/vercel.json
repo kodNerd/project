@@ -1,6 +1,15 @@
 {
     "version": 2,
-    
+    "builds": [
+      {
+        "src": "web",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "25mb",
+          "pythonVersion": 3.10
+        }
+      }
+    ],
     "routes": [
       { "src": "/static/(.*)", "dest": "/static/$1" },
       { "src": "/.*", "dest": "web/app/manage.py" }
